@@ -40,6 +40,25 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,
+      bottomNavigationBar: BottomNavigationBar(
+        // selectedIconTheme: IconThemeData(color: Colors.white),
+        // unselectedIconTheme: IconThemeData(color: Colors.grey),
+        // selectedLabelStyle: TextStyle(color: Colors.white),
+        // unselectedLabelStyle: TextStyle(color: Colors.grey),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.black,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Account",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.tag),
+            label: "Deals",
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(
