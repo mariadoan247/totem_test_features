@@ -9,7 +9,6 @@ class SearchBox extends StatefulWidget {
 
 class _SearchBoxState extends State<SearchBox> {
   static const _borderColor = Color(0xff3c3c3c);
-  static const _iconColor = Colors.grey;
   static const _iconSize = 20.0;
   final _searchController = TextEditingController();
   final _focusNode = FocusNode();
@@ -24,7 +23,7 @@ class _SearchBoxState extends State<SearchBox> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48,
+      height: 56,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
@@ -38,10 +37,9 @@ class _SearchBoxState extends State<SearchBox> {
         child: Stack(
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 12.0),
-                ),
+                const SizedBox(width: 16),
                 Expanded(
                   child: TextField(
                     controller: _searchController,
@@ -56,33 +54,53 @@ class _SearchBoxState extends State<SearchBox> {
                         _focusNode.requestFocus();
                       });
                     },
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Text(
-                        '|',
-                        style: TextStyle(fontSize: 24, color: _borderColor),
+                const Text(
+                  '|',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: _borderColor,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {},
+                  hoverColor: const Color(0x991e1e1e),
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                  child: Container(
+                    height: 56,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(15),
+                        bottomRight: Radius.circular(15),
                       ),
-                      SizedBox(width: 8.0),
-                      Icon(
-                        Icons.search,
-                        size: _iconSize,
-                        color: _borderColor,
-                      ),
-                      SizedBox(width: 8.0),
-                      Text(
-                        'Search',
-                        style: TextStyle(fontSize: 16, color: _borderColor),
-                      ),
-                      SizedBox(width: 12.0),
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        SizedBox(width: 8.0),
+                        Icon(
+                          Icons.search,
+                          size: _iconSize,
+                          color: _borderColor,
+                        ),
+                        SizedBox(width: 8.0),
+                        Text(
+                          'Search',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: _borderColor,
+                          ),
+                        ),
+                        SizedBox(width: 12.0),
+                      ],
+                    ),
                   ),
                 ),
               ],
