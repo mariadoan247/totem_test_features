@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 
 class DealsBox1 extends StatelessWidget {
-  const DealsBox1({super.key});
+  const DealsBox1({
+    super.key,
+    required this.companyName,
+    required this.percentBack,
+    required this.logo,
+  });
+
+  final String companyName;
+
+  final int percentBack;
+
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
       alignment: Alignment.topLeft,
-      widthFactor: 0.5,
+      widthFactor: 0.95,
       child: Container(
-        padding: const EdgeInsets.only(
-          left: 22,
-          right: 22,
-          top: 14,
-          bottom: 11,
-        ),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -40,27 +45,46 @@ class DealsBox1 extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const [
-                Text(
-                  "Learn & Earn",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+            child: Container(
+              padding: const EdgeInsets.only(
+                left: 22,
+                right: 22,
+                top: 14,
+                bottom: 11,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 61,
+                    height: 61,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            logo,
+                          ),
+                          fit: BoxFit.fill),
+                    ),
                   ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  "Learn about finance and earn rewards in under 5 minutes.",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
+                  Text(
+                    companyName,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
                   ),
-                ),
-                SizedBox(height: 8),
-              ],
+                  const SizedBox(height: 8),
+                  Text(
+                    "Get $percentBack% cash back from any purchase!",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+              ),
             ),
           ),
         ),
