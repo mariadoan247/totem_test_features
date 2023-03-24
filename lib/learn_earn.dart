@@ -9,8 +9,8 @@ class LearnEarn extends StatelessWidget {
       padding: const EdgeInsets.only(
         left: 22,
         right: 22,
-        top: 14,
-        bottom: 11,
+        top: 16,
+        bottom: 16,
       ),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -34,7 +34,8 @@ class LearnEarn extends StatelessWidget {
             "Learn & Earn",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
             ),
           ),
           const SizedBox(
@@ -44,7 +45,8 @@ class LearnEarn extends StatelessWidget {
             "Learn about finance and earn rewards in under 5 minutes.",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 12,
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
             ),
           ),
           const SizedBox(
