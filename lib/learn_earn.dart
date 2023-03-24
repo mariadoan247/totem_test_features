@@ -12,8 +12,8 @@ class LearnEarn extends StatelessWidget {
         top: 14,
         bottom: 11,
       ),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
@@ -22,10 +22,7 @@ class LearnEarn extends StatelessWidget {
             Color(0xff7A1336),
           ],
         ),
-        border: Border.all(
-          width: 3,
-        ),
-        borderRadius: const BorderRadius.all(
+        borderRadius: BorderRadius.all(
           Radius.circular(15),
         ),
       ),
@@ -59,11 +56,11 @@ class LearnEarn extends StatelessWidget {
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.5)),
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                 ),
-                backgroundColor: Color(0x991e1e1e),
+                backgroundColor: const Color(0x991e1e1e),
                 foregroundColor: Colors.white,
               ),
               child: const Padding(
