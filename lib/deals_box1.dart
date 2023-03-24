@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DealsBox1 extends StatelessWidget {
   const DealsBox1({
@@ -13,6 +14,17 @@ class DealsBox1 extends StatelessWidget {
   final int percentBack;
 
   final String logo;
+
+  // TODO: Get the URL launcher to work
+  Future<void> _launchURL() async {
+    final url = Uri.parse(logo);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+      print("OPENED!");
+    } else {
+      throw 'Could not launch $logo';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +49,7 @@ class DealsBox1 extends StatelessWidget {
           Radius.circular(20),
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: _launchURL,
           hoverColor: const Color(0x991e1e1e),
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
