@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DealsBox1 extends StatelessWidget {
-  const DealsBox1({
+class DealsBox2 extends StatelessWidget {
+  const DealsBox2({
     super.key,
     required this.companyName,
     required this.percentBack,
@@ -49,8 +49,7 @@ class DealsBox1 extends StatelessWidget {
               top: 14,
               bottom: 11,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            child: Row(
               children: [
                 Container(
                   width: 61,
@@ -64,20 +63,25 @@ class DealsBox1 extends StatelessWidget {
                         fit: BoxFit.fill),
                   ),
                 ),
-                Text(
-                  companyName,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  "Get $percentBack% cash back from any purchase!",
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
+                const SizedBox(width: 24),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      companyName,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      "Get $percentBack% cash back from any purchase!",
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 8),
               ],
