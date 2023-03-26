@@ -28,7 +28,10 @@ class _LearnEarnMainState extends State<LearnEarnMain> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
               SizedBox(height: 32),
-              QuizOfTheDay(),
+              QuizOfTheDay(
+                dollarAmount: 1.00,
+                time: 5,
+              ),
             ],
           ),
         ),

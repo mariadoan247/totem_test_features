@@ -5,7 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuizOfTheDay extends StatelessWidget {
-  const QuizOfTheDay({super.key});
+  const QuizOfTheDay({
+    super.key,
+    required this.dollarAmount,
+    required this.time,
+  });
+  final double dollarAmount;
+  final int time;
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +67,8 @@ class QuizOfTheDay extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Column(
-                              children: const [
-                                Text(
+                              children: [
+                                const Text(
                                   "Reward:",
                                   style: TextStyle(
                                     fontSize: 12,
@@ -70,8 +76,8 @@ class QuizOfTheDay extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  "1.00\$",
-                                  style: TextStyle(
+                                  "$dollarAmount\$",
+                                  style: const TextStyle(
                                     fontSize: 12,
                                     color: Colors.white,
                                   ),
@@ -79,8 +85,8 @@ class QuizOfTheDay extends StatelessWidget {
                               ],
                             ),
                             Column(
-                              children: const [
-                                Text(
+                              children: [
+                                const Text(
                                   "Estimated time",
                                   style: TextStyle(
                                     fontSize: 12,
@@ -88,8 +94,8 @@ class QuizOfTheDay extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  "5 min",
-                                  style: TextStyle(
+                                  "$time min",
+                                  style: const TextStyle(
                                     fontSize: 12,
                                     color: Colors.white,
                                   ),
