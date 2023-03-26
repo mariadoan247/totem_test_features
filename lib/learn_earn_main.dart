@@ -1,39 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/deals_box2.dart';
-import 'package:totem_test_app/learn_earn.dart';
 import 'package:totem_test_app/quiz_of_the_day.dart';
-import 'package:totem_test_app/search.dart';
-import 'package:totem_test_app/deals_box1.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
+class LearnEarnMain extends StatefulWidget {
+  const LearnEarnMain({
     super.key,
   });
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<LearnEarnMain> createState() => _LearnEarnMainState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LearnEarnMainState extends State<LearnEarnMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

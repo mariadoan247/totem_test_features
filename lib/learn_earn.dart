@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LearnEarn extends StatelessWidget {
   const LearnEarn({super.key});
@@ -54,7 +55,7 @@ class LearnEarn extends StatelessWidget {
           ),
           Center(
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => context.go('/learn_earn'),
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.5)),
