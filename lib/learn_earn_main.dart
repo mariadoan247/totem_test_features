@@ -21,13 +21,22 @@ class _LearnEarnMainState extends State<LearnEarnMain> {
       ),
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
-              SizedBox(height: 32),
+              Text(
+                "Read through each mini presentation and take a quiz to earn money. Happy learning!",
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+              SizedBox(height: 39),
+              Text(
+                "QUIZ OF THE DAY!",
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+              SizedBox(height: 16),
               QuizOfTheDay(
                 dollarAmount: 1.00,
                 time: 5,
