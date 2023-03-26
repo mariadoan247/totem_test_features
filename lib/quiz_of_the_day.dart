@@ -17,7 +17,7 @@ class QuizOfTheDay extends StatelessWidget {
           image: DecorationImage(
               fit: BoxFit.fill,
               image: NetworkImage(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbzjg8rL3sIpsKOxOEK5LbrJgKHBljTpb01Q&usqp=CAU")),
+                  "https://www.financialexpress.com/wp-content/uploads/2023/01/Image-credit-Freepik-31.jpg")),
         ),
         child: Column(
           children: [
@@ -27,7 +27,7 @@ class QuizOfTheDay extends StatelessWidget {
             Center(
               child: ClipRect(
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                  filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
                   child: Container(
                     height: 100,
                     padding: const EdgeInsets.only(
@@ -53,8 +53,8 @@ class QuizOfTheDay extends StatelessWidget {
                           "Stocks, finances and how to get ahead of the game",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         Row(
@@ -62,14 +62,38 @@ class QuizOfTheDay extends StatelessWidget {
                           children: [
                             Column(
                               children: const [
-                                Text("Reward:"),
-                                Text("1.00\$"),
+                                Text(
+                                  "Reward:",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "1.00\$",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ],
                             ),
                             Column(
                               children: const [
-                                Text("Estimated time"),
-                                Text("5 min"),
+                                Text(
+                                  "Estimated time",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "5 min",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -87,13 +111,14 @@ class QuizOfTheDay extends StatelessWidget {
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
                               ),
-                              backgroundColor: const Color(0x991e1e1e),
+                              backgroundColor:
+                                  const Color.fromRGBO(0, 0, 0, 0.3),
                               foregroundColor: Colors.white,
                             ),
                             child: const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 28.0),
                               child: Text(
-                                "START QUIZ",
+                                "Start Quiz",
                               ),
                             ),
                           ),
