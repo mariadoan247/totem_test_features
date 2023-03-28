@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class SearchBox extends StatefulWidget {
-  const SearchBox({Key? key}) : super(key: key);
+  const SearchBox({
+    super.key,
+    this.onSearch,
+  });
+
+  final void Function(String?)? onSearch;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -68,7 +73,11 @@ class _SearchBoxState extends State<SearchBox> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    widget.onSearch?.call(_searchController.text.trim().isEmpty
+                        ? null
+                        : _searchController.text.trim());
+                  },
                   hoverColor: const Color(0x991e1e1e),
                   borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(10),
