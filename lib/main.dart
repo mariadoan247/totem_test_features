@@ -1,12 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:totem_test_app/deals_box2.dart';
-import 'package:totem_test_app/learn_earn.dart';
+import 'package:totem_test_app/deals_and_offers.dart';
 import 'package:totem_test_app/learn_earn_main.dart';
-import 'package:totem_test_app/search.dart';
-import 'package:totem_test_app/deals_box1.dart';
 
 void main() {
   runApp(MyApp());
@@ -69,6 +64,19 @@ class GenericPage extends StatefulWidget {
 
 class _GenericPageState extends State<GenericPage> {
   static int _currentIndex = 0;
+  static const _routes = [
+    _NavigationItems(
+      route: '/',
+      icon: Icons.person,
+      label: 'Account',
+    ),
+    _NavigationItems(
+      route: '/deals',
+      icon: Icons.discount,
+      label: 'Deals',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,22 +95,15 @@ class _GenericPageState extends State<GenericPage> {
           if (_currentIndex == newIndex) return;
           setState(() {
             _currentIndex = newIndex;
-            if (newIndex == 0) {
-              context.go('/');
-            } else if (newIndex == 1) {
-              context.go('/deals');
-            }
+            context.go(_routes[newIndex].route);
           });
         },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Account",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.discount),
-            label: "Deals",
-          ),
+        items: [
+          for (final item in _routes)
+            BottomNavigationBarItem(
+              icon: Icon(item.icon),
+              label: item.label,
+            ),
         ],
       ),
       body: Padding(
@@ -115,102 +116,14 @@ class _GenericPageState extends State<GenericPage> {
   }
 }
 
-// TODO: Move this to it's own file
-class DealsAndOffers extends StatefulWidget {
-  const DealsAndOffers({
-    super.key,
+class _NavigationItems {
+  const _NavigationItems({
+    required this.route,
+    required this.icon,
+    required this.label,
   });
 
-  @override
-  State<DealsAndOffers> createState() => _DealsAndOffersState();
-}
-
-class _DealsAndOffersState extends State<DealsAndOffers> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const SearchBox(),
-        const SizedBox(height: 32),
-        const LearnEarn(),
-        const SizedBox(height: 32),
-        const Text(
-          "DEALS & OFFERS",
-          style: TextStyle(
-            color: Color(0xff4f4d4d),
-            fontSize: 12,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            Expanded(
-              child: DealsBox1(
-                companyName: "She Native",
-                companySite: "https://www.shenative.com/",
-                percentBack: 5,
-                logo:
-                    "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
-              ),
-            ),
-            SizedBox(width: 24),
-            Expanded(
-              child: DealsBox1(
-                companyName: "Target",
-                companySite: "https://www.target.com/",
-                percentBack: 3,
-                logo:
-                    "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 24),
-        const DealsBox2(
-          companyName: "ACONAV",
-          companySite: "https://www.aconav.com/",
-          percentBack: 4,
-          logo:
-              "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
-        ),
-        const SizedBox(height: 24),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            Expanded(
-              child: DealsBox1(
-                companyName: "She Native",
-                companySite: "https://www.shenative.com/",
-                percentBack: 5,
-                logo:
-                    "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
-              ),
-            ),
-            SizedBox(width: 24),
-            Expanded(
-              child: DealsBox1(
-                companyName: "Target",
-                companySite: "https://www.target.com/",
-                percentBack: 3,
-                logo:
-                    "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 24),
-        const DealsBox2(
-          companyName: "ACONAV",
-          companySite: "https://www.aconav.com/",
-          percentBack: 4,
-          logo:
-              "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
-        ),
-        const SizedBox(height: 24),
-      ],
-    );
-  }
+  final String route;
+  final IconData icon;
+  final String label;
 }
