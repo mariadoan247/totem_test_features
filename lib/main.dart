@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_box2.dart';
 import 'package:totem_test_app/learn_earn.dart';
+import 'package:totem_test_app/learn_earn_main.dart';
 import 'package:totem_test_app/search.dart';
 import 'package:totem_test_app/deals_box1.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _router,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
     );
   }
+
+  final _router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const MyHomePage(),
+      ),
+      GoRoute(
+          path: '/learn_earn',
+          builder: (context, state) => const LearnEarnMain())
+    ],
+  );
 }
 
 class MyHomePage extends StatefulWidget {
