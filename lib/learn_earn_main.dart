@@ -13,29 +13,25 @@ class LearnEarnMain extends StatefulWidget {
 class _LearnEarnMainState extends State<LearnEarnMain> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Learn & Earn"),
-        elevation: 0,
-        backgroundColor: Colors.black,
-      ),
-      backgroundColor: Colors.black,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: const [
-              SizedBox(height: 32),
-              QuizOfTheDay(
-                dollarAmount: 1.00,
-                time: 5,
-              ),
-            ],
-          ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: const [
+        Text(
+          "Read through each mini presentation and take a quiz to earn money. Happy learning!",
+          style: TextStyle(color: Colors.white, fontSize: 14),
         ),
-      ),
+        SizedBox(height: 39),
+        Text(
+          "QUIZ OF THE DAY!",
+          style: TextStyle(color: Colors.white, fontSize: 14),
+        ),
+        SizedBox(height: 16),
+        QuizOfTheDay(
+          dollarAmount: 1.00,
+          time: 5,
+        ),
+      ],
     );
   }
 }

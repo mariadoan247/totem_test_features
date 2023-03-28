@@ -55,7 +55,7 @@ class LearnEarn extends StatelessWidget {
           ),
           Center(
             child: TextButton(
-              onPressed: () => context.go('/learn_earn'),
+              onPressed: () => context.push('/learn_earn'),
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.5)),

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_box2.dart';
@@ -28,25 +30,45 @@ class MyApp extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const MyHomePage(),
+        builder: (context, state) => const GenericPage(
+          title: "Main page",
+          child: Placeholder(),
+        ),
       ),
       GoRoute(
-          path: '/learn_earn',
-          builder: (context, state) => const LearnEarnMain())
+        path: '/deals',
+        builder: (context, state) => const GenericPage(
+          title: "Totem deals",
+          child: DealsAndOffers(),
+        ),
+      ),
+      GoRoute(
+        path: '/learn_earn',
+        builder: (context, state) => const GenericPage(
+          title: "Learn & Earn",
+          child: LearnEarnMain(),
+        ),
+      ),
     ],
   );
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
+class GenericPage extends StatefulWidget {
+  const GenericPage({
     super.key,
+    required this.title,
+    required this.child,
   });
 
+  final String title;
+  final Widget child;
+
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<GenericPage> createState() => _GenericPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _GenericPageState extends State<GenericPage> {
+  static int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,9 +79,21 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       backgroundColor: Colors.black,
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         backgroundColor: Colors.black,
+        onTap: (newIndex) {
+          if (_currentIndex == newIndex) return;
+          setState(() {
+            _currentIndex = newIndex;
+            if (newIndex == 0) {
+              context.go('/');
+            } else if (newIndex == 1) {
+              context.go('/deals');
+            }
+          });
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -74,92 +108,109 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SearchBox(),
-              const SizedBox(height: 32),
-              const LearnEarn(),
-              const SizedBox(height: 32),
-              const Text(
-                "DEALS & OFFERS",
-                style: TextStyle(
-                  color: Color(0xff4f4d4d),
-                  fontSize: 12,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Expanded(
-                    child: DealsBox1(
-                      companyName: "She Native",
-                      companySite: "https://www.shenative.com/",
-                      percentBack: 5,
-                      logo:
-                          "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
-                    ),
-                  ),
-                  SizedBox(width: 24),
-                  Expanded(
-                    child: DealsBox1(
-                      companyName: "Target",
-                      companySite: "https://www.target.com/",
-                      percentBack: 3,
-                      logo:
-                          "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              const DealsBox2(
-                companyName: "ACONAV",
-                companySite: "https://www.aconav.com/",
-                percentBack: 4,
-                logo:
-                    "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
-              ),
-              const SizedBox(height: 24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Expanded(
-                    child: DealsBox1(
-                      companyName: "She Native",
-                      companySite: "https://www.shenative.com/",
-                      percentBack: 5,
-                      logo:
-                          "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
-                    ),
-                  ),
-                  SizedBox(width: 24),
-                  Expanded(
-                    child: DealsBox1(
-                      companyName: "Target",
-                      companySite: "https://www.target.com/",
-                      percentBack: 3,
-                      logo:
-                          "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              const DealsBox2(
-                companyName: "ACONAV",
-                companySite: "https://www.aconav.com/",
-                percentBack: 4,
-                logo:
-                    "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
-              ),
-              const SizedBox(height: 24),
-            ],
-          ),
+          child: widget.child,
         ),
       ),
+    );
+  }
+}
+
+// TODO: Move this to it's own file
+class DealsAndOffers extends StatefulWidget {
+  const DealsAndOffers({
+    super.key,
+  });
+
+  @override
+  State<DealsAndOffers> createState() => _DealsAndOffersState();
+}
+
+class _DealsAndOffersState extends State<DealsAndOffers> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SearchBox(),
+        const SizedBox(height: 32),
+        const LearnEarn(),
+        const SizedBox(height: 32),
+        const Text(
+          "DEALS & OFFERS",
+          style: TextStyle(
+            color: Color(0xff4f4d4d),
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Expanded(
+              child: DealsBox1(
+                companyName: "She Native",
+                companySite: "https://www.shenative.com/",
+                percentBack: 5,
+                logo:
+                    "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
+              ),
+            ),
+            SizedBox(width: 24),
+            Expanded(
+              child: DealsBox1(
+                companyName: "Target",
+                companySite: "https://www.target.com/",
+                percentBack: 3,
+                logo:
+                    "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        const DealsBox2(
+          companyName: "ACONAV",
+          companySite: "https://www.aconav.com/",
+          percentBack: 4,
+          logo:
+              "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Expanded(
+              child: DealsBox1(
+                companyName: "She Native",
+                companySite: "https://www.shenative.com/",
+                percentBack: 5,
+                logo:
+                    "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
+              ),
+            ),
+            SizedBox(width: 24),
+            Expanded(
+              child: DealsBox1(
+                companyName: "Target",
+                companySite: "https://www.target.com/",
+                percentBack: 3,
+                logo:
+                    "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 24),
+        const DealsBox2(
+          companyName: "ACONAV",
+          companySite: "https://www.aconav.com/",
+          percentBack: 4,
+          logo:
+              "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
+        ),
+        const SizedBox(height: 24),
+      ],
     );
   }
 }
