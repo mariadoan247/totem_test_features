@@ -4,6 +4,7 @@ class SearchBox extends StatefulWidget {
   const SearchBox({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SearchBoxState createState() => _SearchBoxState();
 }
 

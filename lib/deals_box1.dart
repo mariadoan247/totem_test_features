@@ -5,24 +5,26 @@ class DealsBox1 extends StatelessWidget {
   const DealsBox1({
     super.key,
     required this.companyName,
+    required this.companySite,
     required this.percentBack,
     required this.logo,
   });
 
   final String companyName;
 
+  final String companySite;
+
   final int percentBack;
 
   final String logo;
 
-  // TODO: Get the URL launcher to work
   Future<void> _launchURL() async {
-    final url = Uri.parse(logo);
+    Uri url = Uri.parse(companySite);
+
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
-      print("OPENED!");
     } else {
-      throw 'Could not launch $logo';
+      throw 'Could not launch $url';
     }
   }
 
