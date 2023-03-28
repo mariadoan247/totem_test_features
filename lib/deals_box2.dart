@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DealsBox2 extends StatelessWidget {
   const DealsBox2({
@@ -13,6 +14,26 @@ class DealsBox2 extends StatelessWidget {
   final int percentBack;
 
   final String logo;
+
+  // TODO: Get the URL launcher to work
+  Future<void> _launchURL() async {
+    Uri? url;
+
+    if (companyName == "ACONAV") {
+      url = Uri.parse("https://www.aconav.com/");
+    }
+
+    if (url != null) {
+      if (await canLaunchUrl(url as Uri)) {
+        await launchUrl(url);
+        print("OPENED!");
+      } else {
+        throw 'Could not launch $url';
+      }
+    } else {
+      throw 'Invalid company name: $companyName';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +58,9 @@ class DealsBox2 extends StatelessWidget {
           Radius.circular(20),
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            _launchURL();
+          },
           hoverColor: const Color(0x991e1e1e),
           borderRadius: const BorderRadius.all(
             Radius.circular(20),

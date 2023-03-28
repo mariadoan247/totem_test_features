@@ -17,12 +17,23 @@ class DealsBox1 extends StatelessWidget {
 
   // TODO: Get the URL launcher to work
   Future<void> _launchURL() async {
-    final url = Uri.parse(logo);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-      print("OPENED!");
+    Uri? url;
+
+    if (companyName == "She Native") {
+      url = Uri.parse("https://www.shenative.com/");
+    } else if (companyName == "Target") {
+      url = Uri.parse("https://www.target.com/");
+    }
+
+    if (url != null) {
+      if (await canLaunchUrl(url as Uri)) {
+        await launchUrl(url);
+        print("OPENED!");
+      } else {
+        throw 'Could not launch $url';
+      }
     } else {
-      throw 'Could not launch $logo';
+      throw 'Invalid company name: $companyName';
     }
   }
 
