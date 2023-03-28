@@ -31,8 +31,9 @@ class MyApp extends StatelessWidget {
         builder: (context, state) => const MyHomePage(),
       ),
       GoRoute(
-          path: '/learn_earn',
-          builder: (context, state) => const LearnEarnMain())
+        path: '/learn_earn',
+        builder: (context, state) => const LearnEarnMain(),
+      ),
     ],
   );
 }
