@@ -82,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: DealsBox1(
                       companyName: "She Native",
+                      companySite: "https://www.shenative.com/",
                       percentBack: 5,
                       logo:
                           "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
@@ -91,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: DealsBox1(
                       companyName: "Target",
+                      companySite: "https://www.target.com/",
                       percentBack: 3,
                       logo:
                           "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
@@ -101,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 24),
               const DealsBox2(
                 companyName: "ACONAV",
+                companySite: "https://www.aconav.com/",
                 percentBack: 4,
                 logo:
                     "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
@@ -112,6 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: DealsBox1(
                       companyName: "She Native",
+                      companySite: "https://www.shenative.com/",
                       percentBack: 5,
                       logo:
                           "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
@@ -121,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: DealsBox1(
                       companyName: "Target",
+                      companySite: "https://www.target.com/",
                       percentBack: 3,
                       logo:
                           "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
@@ -131,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 24),
               const DealsBox2(
                 companyName: "ACONAV",
+                companySite: "https://www.aconav.com/",
                 percentBack: 4,
                 logo:
                     "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
