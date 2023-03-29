@@ -62,7 +62,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/Choctaw_seal.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -78,7 +78,7 @@ flutter:
   fonts:
     - family: Gothic A1
       fonts:
-        - asset: fonts/GothicA1-Bold.ttf
+        - asset: assets/fonts/GothicA1-Bold.ttf
           weight: 700
     
   # For details regarding fonts from package dependencies,
