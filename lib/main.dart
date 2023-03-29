@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_box2.dart';
@@ -115,7 +113,7 @@ class _GenericPageState extends State<GenericPage> {
   }
 }
 
-// TODO: Move this to it's own file
+// TODO: Move this to its own file
 class DealsAndOffers extends StatefulWidget {
   const DealsAndOffers({
     super.key,
