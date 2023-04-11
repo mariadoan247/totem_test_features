@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class LearnBox extends StatelessWidget {
-  const LearnBox(
-      {super.key,
-      required this.title,
-      required this.earnAmount,
-      required this.estTime,
-      required this.displayImage});
+  const LearnBox({
+    super.key,
+    required this.title,
+    required this.earnAmount,
+    required this.estTime,
+    required this.displayImage,
+  });
 
   final String title;
   final int earnAmount;

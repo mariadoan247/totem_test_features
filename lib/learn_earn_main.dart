@@ -18,12 +18,12 @@ class _LearnEarnMainState extends State<LearnEarnMain> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
+        const Text(
           "Read through each mini presentation and take a quiz to earn money. Happy learning!",
           style: TextStyle(color: Colors.white, fontSize: 14),
         ),
-        SizedBox(height: 40),
-        Text(
+        const SizedBox(height: 40),
+        const Text(
           "QUIZ OF THE DAY!",
           style: TextStyle(
             color: Colors.white,
@@ -32,15 +32,15 @@ class _LearnEarnMainState extends State<LearnEarnMain> {
             fontFamily: 'Gothic A1',
           ),
         ),
-        SizedBox(height: 16),
-        QuizOfTheDay(
+        const SizedBox(height: 16),
+        const QuizOfTheDay(
           dollarAmount: 1.00,
           time: 5,
         ),
-        SizedBox(
+        const SizedBox(
           height: 24,
         ),
-        Text(
+        const Text(
           'TRIBES',
           style: TextStyle(
             color: Colors.white,
@@ -49,7 +49,7 @@ class _LearnEarnMainState extends State<LearnEarnMain> {
             fontFamily: 'Gothic A1',
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         Row(
