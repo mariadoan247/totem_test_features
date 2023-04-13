@@ -6,86 +6,73 @@ class ExploreTribes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xffA03C3C),
-            Color(0xffC66640),
-            Color(0xffBB6E3E),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      height: 150,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              height: 100,
-              width: 0,
-              child: Image.asset(
-                'assets/images/Chahta.jpeg',
-                fit: BoxFit.contain,
-              ),
-            ),
+    return ConstrainedBox(
+      constraints: BoxConstraints(minHeight: 150),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xffA03C3C),
+              Color(0xffC66640),
+              Color(0xffBB6E3E),
+            ],
           ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 16,
-                ),
-                const Expanded(
-                  child: Text(
-                    "The Chahta Foundation connects life with culture the Chahta Foundation connects life with cultu The Chahta Foundation connects...",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, left: 20, right: 5),
+              child: Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16.0),
+                    child: Image.asset(
+                      'assets/images/Chahta.png',
+                      height: 70,
+                      fit: BoxFit.contain,
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  padding: const EdgeInsets.only(
-                      left: 20.0, top: 10.0, right: 20.0, bottom: 6.0),
-                  decoration: const BoxDecoration(
-                    color: Color(0x40000000),
-                    borderRadius:
-                        BorderRadius.vertical(bottom: Radius.circular(16)),
+                  const SizedBox(
+                    width: 10,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Chahta Foundation",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Gothic A1',
-                        ),
+                  const Expanded(
+                    child: Text(
+                      "The Chahta Foundation connects life with culture through positive initiatives that help improve the future for Choctaw people everywhere...",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
                       ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              padding:
+                  const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: Color(0x40000000),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(16)),
+              ),
+              child: const Text(
+                "Chahta Foundation",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Gothic A1',
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LearnEarn extends StatelessWidget {
   const LearnEarn({super.key});
@@ -9,11 +10,11 @@ class LearnEarn extends StatelessWidget {
       padding: const EdgeInsets.only(
         left: 22,
         right: 22,
-        top: 14,
-        bottom: 11,
+        top: 16,
+        bottom: 16,
       ),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
@@ -22,10 +23,7 @@ class LearnEarn extends StatelessWidget {
             Color(0xff7A1336),
           ],
         ),
-        border: Border.all(
-          width: 3,
-        ),
-        borderRadius: const BorderRadius.all(
+        borderRadius: BorderRadius.all(
           Radius.circular(15),
         ),
       ),
@@ -37,7 +35,8 @@ class LearnEarn extends StatelessWidget {
             "Learn & Earn",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
             ),
           ),
           const SizedBox(
@@ -47,7 +46,8 @@ class LearnEarn extends StatelessWidget {
             "Learn about finance and earn rewards in under 5 minutes.",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 12,
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
             ),
           ),
           const SizedBox(
@@ -55,15 +55,15 @@ class LearnEarn extends StatelessWidget {
           ),
           Center(
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => context.push('/learn_earn'),
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.5)),
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                 ),
-                backgroundColor: Color(0x991e1e1e),
+                backgroundColor: const Color(0x991e1e1e),
                 foregroundColor: Colors.white,
               ),
               child: const Padding(
