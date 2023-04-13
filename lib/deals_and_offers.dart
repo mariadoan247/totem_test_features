@@ -21,7 +21,7 @@ const _companies = [
     title: "ACONAV",
     link: "https://www.aconav.com/",
     summary: "Get 4% cash back from any purchase!",
-    image: "assets/images/ACONAV_Logo",
+    image: "assets/images/ACONAV_Logo.png",
   ),
   _DealConfiguration(
     title: "She Native",
@@ -39,7 +39,7 @@ const _companies = [
     title: "ACONAV",
     link: "https://www.aconav.com/",
     summary: "Get 4% cash back from any purchase!",
-    image: "assets/images/ACONAV_Logo",
+    image: "assets/images/ACONAV_Logo.png",
   ),
   _DealConfiguration(
     title: "She Native",
@@ -57,7 +57,7 @@ const _companies = [
     title: "ACONAV",
     link: "https://www.aconav.com/",
     summary: "Get 4% cash back from any purchase!",
-    image: "assets/images/ACONAV_Logo",
+    image: "assets/images/ACONAV_Logo.png",
   ),
 ];
 
