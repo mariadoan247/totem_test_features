@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DealsBox1 extends StatelessWidget {
-  const DealsBox1({
+class LongBox extends StatelessWidget {
+  const LongBox({
     super.key,
-    required this.companyName,
-    required this.companySite,
-    required this.percentBack,
-    required this.logo,
+    required this.title,
+    required this.link,
+    required this.summary,
+    required this.image,
   });
 
-  final String companyName;
+  final String title;
 
-  final String companySite;
+  final String link;
 
-  final int percentBack;
+  final String summary;
 
-  final String logo;
+  final String image;
 
   Future<void> _launchURL() async {
-    Uri url = Uri.parse(companySite);
+    Uri url = Uri.parse(link);
 
     if (await canLaunchUrl(url)) {
       await launchUrl(url);
@@ -51,7 +51,9 @@ class DealsBox1 extends StatelessWidget {
           Radius.circular(20),
         ),
         child: InkWell(
-          onTap: _launchURL,
+          onTap: () {
+            _launchURL();
+          },
           hoverColor: const Color(0x991e1e1e),
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
@@ -63,8 +65,7 @@ class DealsBox1 extends StatelessWidget {
               top: 14,
               bottom: 11,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            child: Row(
               children: [
                 Container(
                   width: 61,
@@ -72,26 +73,30 @@ class DealsBox1 extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                        image: NetworkImage(
-                          logo,
-                        ),
-                        fit: BoxFit.fill),
+                      image: AssetImage(image),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-                Text(
-                  companyName,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  "Get $percentBack% cash back from any purchase!",
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
+                const SizedBox(width: 24),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      summary,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 8),
               ],

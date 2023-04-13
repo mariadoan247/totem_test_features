@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class LearnEarn extends StatelessWidget {
-  const LearnEarn({super.key});
+class BigBox extends StatelessWidget {
+  const BigBox({
+    super.key,
+    required this.title,
+    required this.summary,
+    required this.route,
+    required this.colors,
+  });
+
+  final String title;
+
+  final String summary;
+
+  final String route;
+
+  final List<Color> colors;
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +27,13 @@ class LearnEarn extends StatelessWidget {
         top: 16,
         bottom: 16,
       ),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Color(0xff793697),
-            Color(0xff792669),
-            Color(0xff7A1336),
-          ],
+          colors: colors,
         ),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(15),
         ),
       ),
@@ -31,9 +41,9 @@ class LearnEarn extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            "Learn & Earn",
-            style: TextStyle(
+          Text(
+            title,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.w500,
@@ -42,9 +52,9 @@ class LearnEarn extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          const Text(
-            "Learn about finance and earn rewards in under 5 minutes.",
-            style: TextStyle(
+          Text(
+            summary,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontWeight: FontWeight.w400,
@@ -55,7 +65,7 @@ class LearnEarn extends StatelessWidget {
           ),
           Center(
             child: TextButton(
-              onPressed: () => context.push('/learn_earn'),
+              onPressed: () => context.push(route),
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.5)),

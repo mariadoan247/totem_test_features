@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_and_offers.dart';
 import 'package:totem_test_app/learn_earn_main.dart';
+import 'package:totem_test_app/resources_main.dart';
+import 'package:totem_test_app/benefits.dart';
+import 'package:totem_test_app/donations.dart';
+import 'package:totem_test_app/cdib.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,6 +48,34 @@ class MyApp extends StatelessWidget {
           child: LearnEarnMain(),
         ),
       ),
+      GoRoute(
+        path: '/resources',
+        builder: (context, state) => const GenericPage(
+          title: "Resources",
+          child: Resources(),
+        ),
+      ),
+      GoRoute(
+        path: '/benefits',
+        builder: (context, state) => const GenericPage(
+          title: "Benefits",
+          child: Benefits(),
+        ),
+      ),
+      GoRoute(
+        path: '/donations',
+        builder: (context, state) => const GenericPage(
+          title: "Donations",
+          child: Donations(),
+        ),
+      ),
+      GoRoute(
+        path: '/cdib',
+        builder: (context, state) => const GenericPage(
+          title: "CDIB",
+          child: CDIB(),
+        ),
+      ),
     ],
   );
 }
@@ -75,13 +107,18 @@ class _GenericPageState extends State<GenericPage> {
       icon: Icons.discount,
       label: 'Deals',
     ),
+    _NavigationItems(
+      route: '/resources',
+      icon: Icons.bookmark,
+      label: 'Resources',
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Totem Deals"),
+        title: const Text("Totem Test App"),
         elevation: 0,
         backgroundColor: Colors.black,
       ),
