@@ -5,7 +5,12 @@ import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/learn_and_earn/progress_bar.dart';
 
 class SingleContent extends StatefulWidget {
-  const SingleContent({super.key});
+  const SingleContent({
+    super.key,
+    this.onTap,
+  });
+
+  final void Function(int)? onTap;
 
   @override
   State<SingleContent> createState() => _SingleContentState();
@@ -116,7 +121,23 @@ class _SingleContentState extends State<SingleContent> {
               // Didn't work until the container has a color
               behavior: HitTestBehavior.opaque,
               onTap: () {
-                print("I was clicked");
+                widget.onTap?.call(1);
+              },
+              child: Container(
+                width: 100,
+                // color: Colors.transparent,
+              )),
+        ),
+        Positioned(
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: 100,
+          child: GestureDetector(
+              // Didn't work until the container has a color
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                print("Right was clicked");
               },
               child: Container(
                 width: 100,

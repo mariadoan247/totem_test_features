@@ -32,10 +32,20 @@ class ContentMain extends StatefulWidget {
 
 class _ContentMainState extends State<ContentMain> {
   int page = 0;
+
+  void _changePage(int value) {
+    setState(() {
+      page += value;
+      print("I was incremented");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SingleContent(),
+    return Scaffold(
+      body: SingleContent(
+        onTap: _changePage,
+      ),
     );
   }
 }
