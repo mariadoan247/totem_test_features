@@ -86,6 +86,11 @@ class MyApp extends StatelessWidget {
               ExploreTribes(), // add this line to render the ExploreTribes widget
         ),
       ),
+      GoRoute(
+          path: '/content',
+          builder: (context, state) =>
+              const ExploreTribes() // add this line to render the ExploreTribes widget
+          ),
     ],
   );
 }
