@@ -34,8 +34,9 @@ class _ContentMainState extends State<ContentMain> {
   int page = 0;
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children: [for (final item in _contentList) const SingleContent()]);
+    return const Scaffold(
+      body: SingleContent(),
+    );
   }
 }
 

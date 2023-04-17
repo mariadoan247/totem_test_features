@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       GoRoute(
-          path: '/content', builder: (context, state) => const SingleContent())
+          path: '/content', builder: (context, state) => const ContentMain())
     ],
   );
 }
