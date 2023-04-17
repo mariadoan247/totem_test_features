@@ -7,9 +7,17 @@ import 'package:totem_test_app/learn_and_earn/progress_bar.dart';
 class SingleContent extends StatefulWidget {
   const SingleContent({
     super.key,
+    required this.title,
+    required this.imageLink,
+    required this.numPages,
+    required this.currentPage,
     this.onTap,
   });
 
+  final String title;
+  final String imageLink;
+  final int numPages;
+  final int currentPage;
   final void Function(int)? onTap;
 
   @override
@@ -30,9 +38,12 @@ class _SingleContentState extends State<SingleContent> {
                 children: [
                   // Progress bar and exit button
                   const SizedBox(height: 48),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 9),
-                    child: ProgressBar(numSlides: 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 9),
+                    child: ProgressBar(
+                      numSlides: widget.numPages,
+                      currentPage: widget.currentPage,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Align(
@@ -51,10 +62,10 @@ class _SingleContentState extends State<SingleContent> {
                     height: 24,
                   ),
                   // Content title and text
-                  const Center(
+                  Center(
                     child: Text(
-                      "Stock 1",
-                      style: TextStyle(
+                      widget.title,
+                      style: const TextStyle(
                           decoration: TextDecoration.none,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -99,11 +110,11 @@ class _SingleContentState extends State<SingleContent> {
                 child: Container(
                   width: 200,
                   height: 200,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                         image: NetworkImage(
-                          "https://ca-times.brightspotcdn.com/dims4/default/b6f626c/2147483647/strip/true/crop/5205x3470+0+0/resize/1200x800!/format/webp/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F85%2F74%2F56a2f96443aea78c00cadbc5c7b9%2Ffinancial-markets-25408.jpg",
+                          widget.imageLink,
                         ),
                         fit: BoxFit.fill),
                   ),
@@ -116,12 +127,12 @@ class _SingleContentState extends State<SingleContent> {
           left: 0,
           top: 0,
           bottom: 0,
-          width: 100,
+          width: 150,
           child: GestureDetector(
               // Didn't work until the container has a color
               behavior: HitTestBehavior.opaque,
               onTap: () {
-                widget.onTap?.call(1);
+                widget.onTap?.call(-1);
               },
               child: Container(
                 width: 100,
@@ -130,14 +141,14 @@ class _SingleContentState extends State<SingleContent> {
         ),
         Positioned(
           right: 0,
-          top: 0,
           bottom: 0,
-          width: 100,
+          height: 600,
+          width: 150,
           child: GestureDetector(
               // Didn't work until the container has a color
               behavior: HitTestBehavior.opaque,
               onTap: () {
-                print("Right was clicked");
+                widget.onTap?.call(1);
               },
               child: Container(
                 width: 100,

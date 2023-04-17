@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ProgressBar extends StatelessWidget {
-  const ProgressBar({super.key, required this.numSlides});
+  const ProgressBar({
+    super.key,
+    required this.numSlides,
+    required this.currentPage,
+  });
 
   final int numSlides;
+  final int currentPage;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -12,7 +17,7 @@ class ProgressBar extends StatelessWidget {
         for (var i = 0; i < numSlides; i++)
           _singleProgress(
             constraints.maxWidth / numSlides,
-            i == 0 ? true : false,
+            i <= currentPage ? true : false,
           ),
       ]);
     });

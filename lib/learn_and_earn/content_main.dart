@@ -12,13 +12,13 @@ const _contentList = [
   _ContentConfiguration(
     title: 'Stock 2',
     imageLink:
-        'https://ca-times.brightspotcdn.com/dims4/default/b6f626c/2147483647/strip/true/crop/5205x3470+0+0/resize/1200x800!/format/webp/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F85%2F74%2F56a2f96443aea78c00cadbc5c7b9%2Ffinancial-markets-25408.jpg',
+        'https://s.marketwatch.com/public/resources/images/MW-DT508_nyse_ZG_20150901145932.jpg',
     text: 'Text1',
   ),
   _ContentConfiguration(
     title: 'Stock 3',
     imageLink:
-        'https://ca-times.brightspotcdn.com/dims4/default/b6f626c/2147483647/strip/true/crop/5205x3470+0+0/resize/1200x800!/format/webp/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F85%2F74%2F56a2f96443aea78c00cadbc5c7b9%2Ffinancial-markets-25408.jpg',
+        'https://www.protocol.com/media-library/robinhood.jpg?id=25549393&width=1245&height=700&quality=85&coordinates=5%2C0%2C5%2C0',
     text: 'Text1',
   ),
 ];
@@ -35,8 +35,15 @@ class _ContentMainState extends State<ContentMain> {
 
   void _changePage(int value) {
     setState(() {
-      page += value;
-      print("I was incremented");
+      if (page + value < 0) {
+        print('Already in zero');
+        page = 0;
+      } else if (page + value > _contentList.length - 1) {
+        // route to end of quiz page
+      } else {
+        page += value;
+        print("I was incremented");
+      }
     });
   }
 
@@ -44,6 +51,10 @@ class _ContentMainState extends State<ContentMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleContent(
+        title: _contentList[page].title,
+        imageLink: _contentList[page].imageLink,
+        numPages: _contentList.length,
+        currentPage: page,
         onTap: _changePage,
       ),
     );
