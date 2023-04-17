@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/pie_chart.dart';
-import 'package:my_app/budget.dart';
+import 'package:totem_test_app/budget.dart';
+import 'package:totem_test_app/pie_chart.dart';
 
 class SpendingSummary extends StatefulWidget {
   const SpendingSummary({super.key});
