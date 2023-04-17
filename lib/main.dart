@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_and_offers.dart';
+import 'package:totem_test_app/learn_and_earn/content_main.dart';
+import 'package:totem_test_app/learn_and_earn/single_content.dart';
 import 'package:totem_test_app/learn_earn_main.dart';
 import 'package:totem_test_app/resources_main.dart';
 import 'package:totem_test_app/benefits.dart';
@@ -87,10 +89,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       GoRoute(
-          path: '/content',
-          builder: (context, state) =>
-              const ExploreTribes() // add this line to render the ExploreTribes widget
-          ),
+          path: '/content', builder: (context, state) => const SingleContent())
     ],
   );
 }
