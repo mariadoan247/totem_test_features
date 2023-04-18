@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_and_offers.dart';
+import 'package:totem_test_app/learn_and_earn/content_main.dart';
+import 'package:totem_test_app/learn_and_earn/single_content.dart';
 import 'package:totem_test_app/learn_earn_main.dart';
+import 'package:totem_test_app/resources_main.dart';
+import 'package:totem_test_app/benefits.dart';
+import 'package:totem_test_app/cdib.dart';
+import 'package:totem_test_app/explore_tribes.dart';
+
+import 'donations_main.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,6 +52,44 @@ class MyApp extends StatelessWidget {
           child: LearnEarnMain(),
         ),
       ),
+      GoRoute(
+        path: '/resources',
+        builder: (context, state) => const GenericPage(
+          title: "Resources",
+          child: Resources(),
+        ),
+      ),
+      GoRoute(
+        path: '/benefits',
+        builder: (context, state) => const GenericPage(
+          title: "Benefits",
+          child: Benefits(),
+        ),
+      ),
+      GoRoute(
+        path: '/donations',
+        builder: (context, state) => const GenericPage(
+          title: "Donation",
+          child: DonationsMain(),
+        ),
+      ),
+      GoRoute(
+        path: '/cdib',
+        builder: (context, state) => const GenericPage(
+          title: "CDIB",
+          child: CDIB(),
+        ),
+      ),
+      GoRoute(
+        path: '/explore_tribes',
+        builder: (context, state) => const GenericPage(
+          title: "Explore Tribes",
+          child:
+              ExploreTribes(), // add this line to render the ExploreTribes widget
+        ),
+      ),
+      GoRoute(
+          path: '/content', builder: (context, state) => const ContentMain())
     ],
   );
 }
@@ -75,13 +121,18 @@ class _GenericPageState extends State<GenericPage> {
       icon: Icons.discount,
       label: 'Deals',
     ),
+    _NavigationItems(
+      route: '/resources',
+      icon: Icons.bookmark,
+      label: 'Resources',
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Totem Deals"),
+        title: Text(widget.title),
         elevation: 0,
         backgroundColor: Colors.black,
       ),

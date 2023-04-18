@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class QuizOfTheDay extends StatelessWidget {
   const QuizOfTheDay({
@@ -106,7 +107,9 @@ class QuizOfTheDay extends StatelessWidget {
                         ),
                         Center(
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.go('/content');
+                            },
                             style: TextButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12.5)),

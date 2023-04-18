@@ -1,73 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/deals_box1.dart';
-import 'package:totem_test_app/deals_box2.dart';
-import 'package:totem_test_app/learn_earn.dart';
+import 'package:totem_test_app/cube_box.dart';
+import 'package:totem_test_app/long_box.dart';
 import 'package:totem_test_app/search.dart';
 
 // TODO: get data from elsewhere
 const _companies = [
   _DealConfiguration(
-    companyName: "She Native",
-    companySite: "https://www.shenative.com/",
-    percentBack: 5,
-    logo:
-        "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
+    title: "She Native",
+    link: "https://www.shenative.com/",
+    summary: "Get 5% cash back from any purchase!",
+    image: 'assets/images/She_Native.png',
   ),
   _DealConfiguration(
-    companyName: "Target",
-    companySite: "https://www.target.com/",
-    percentBack: 3,
-    logo:
-        "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
+    title: "Target",
+    link: "https://www.target.com/",
+    summary: "Get 3% cash back from any purchase!",
+    image: "assets/images/Target_Logo.png",
   ),
   _DealConfiguration(
-    companyName: "ACONAV",
-    companySite: "https://www.aconav.com/",
-    percentBack: 4,
-    logo:
-        "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
+    title: "ACONAV",
+    link: "https://www.aconav.com/",
+    summary: "Get 4% cash back from any purchase!",
+    image: "assets/images/ACONAV_Logo.png",
   ),
   _DealConfiguration(
-    companyName: "She Native",
-    companySite: "https://www.shenative.com/",
-    percentBack: 5,
-    logo:
-        "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
+    title: "She Native",
+    link: "https://www.shenative.com/",
+    summary: "Get 5% cash back from any purchase!",
+    image: 'assets/images/She_Native.png',
   ),
   _DealConfiguration(
-    companyName: "Target",
-    companySite: "https://www.target.com/",
-    percentBack: 3,
-    logo:
-        "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
+    title: "Target",
+    link: "https://www.target.com/",
+    summary: "Get 3% cash back from any purchase!",
+    image: "assets/images/Target_Logo.png",
   ),
   _DealConfiguration(
-    companyName: "ACONAV",
-    companySite: "https://www.aconav.com/",
-    percentBack: 4,
-    logo:
-        "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
+    title: "ACONAV",
+    link: "https://www.aconav.com/",
+    summary: "Get 4% cash back from any purchase!",
+    image: "assets/images/ACONAV_Logo.png",
   ),
   _DealConfiguration(
-    companyName: "She Native",
-    companySite: "https://www.shenative.com/",
-    percentBack: 5,
-    logo:
-        "https://cdn.shopify.com/s/files/1/0420/8613/articles/Untitled_design_1.png?v=1456278404",
+    title: "She Native",
+    link: "https://www.shenative.com/",
+    summary: "Get 5% cash back from any purchase!",
+    image: 'assets/images/She_Native.png',
   ),
   _DealConfiguration(
-    companyName: "Target",
-    companySite: "https://www.target.com/",
-    percentBack: 3,
-    logo:
-        "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
+    title: "Target",
+    link: "https://www.target.com/",
+    summary: "Get 3% cash back from any purchase!",
+    image: "assets/images/Target_Logo.png",
   ),
   _DealConfiguration(
-    companyName: "ACONAV",
-    companySite: "https://www.aconav.com/",
-    percentBack: 4,
-    logo:
-        "https://images.squarespace-cdn.com/content/v1/54b6e17ae4b077c9025f7a14/1480546879783-46XEFRV7UPX4F3WUK3L2/LOGO_ACONAV_BBG.jpg?format=1500w",
+    title: "ACONAV",
+    link: "https://www.aconav.com/",
+    summary: "Get 4% cash back from any purchase!",
+    image: "assets/images/ACONAV_Logo.png",
   ),
 ];
 
@@ -107,8 +97,6 @@ class _DealsAndOffersState extends State<DealsAndOffers> {
 
   List<Widget> _buildUnsearched() {
     return [
-      const LearnEarn(),
-      const SizedBox(height: 32),
       const Text(
         "DEALS & OFFERS",
         style: TextStyle(
@@ -118,50 +106,50 @@ class _DealsAndOffersState extends State<DealsAndOffers> {
       ),
       for (int i = 0; i < _companies.length; i++) ...[
         const SizedBox(height: 32),
-        if (i % 3 == 0) _buildBox1(i++) else _buildBox2(i),
+        if (i % 3 == 0) _buildCubeBox(i++) else _buildLongBox(i),
       ],
     ];
   }
 
-  Widget _buildBox1(int i) {
+  Widget _buildCubeBox(int i) {
     if (i < _companies.length - 1) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Expanded(
-            child: DealsBox1(
-              companyName: _companies[i].companyName,
-              companySite: _companies[i].companySite,
-              percentBack: _companies[i].percentBack,
-              logo: _companies[i].logo,
+            child: CubeBox(
+              title: _companies[i].title,
+              link: _companies[i].link,
+              summary: _companies[i].summary,
+              image: _companies[i].image,
             ),
           ),
           const SizedBox(width: 24),
           Expanded(
-            child: DealsBox1(
-              companyName: _companies[i + 1].companyName,
-              companySite: _companies[i + 1].companySite,
-              percentBack: _companies[i + 1].percentBack,
-              logo: _companies[i + 1].logo,
+            child: CubeBox(
+              title: _companies[i + 1].title,
+              link: _companies[i + 1].link,
+              summary: _companies[i + 1].summary,
+              image: _companies[i + 1].image,
             ),
           ),
         ],
       );
     }
-    return DealsBox2(
-      companyName: _companies[i].companyName,
-      companySite: _companies[i].companySite,
-      percentBack: _companies[i].percentBack,
-      logo: _companies[i].logo,
+    return LongBox(
+      title: _companies[i].title,
+      link: _companies[i].link,
+      summary: _companies[i].summary,
+      image: _companies[i].image,
     );
   }
 
-  Widget _buildBox2(int i) {
-    return DealsBox2(
-      companyName: _companies[i].companyName,
-      companySite: _companies[i].companySite,
-      percentBack: _companies[i].percentBack,
-      logo: _companies[i].logo,
+  Widget _buildLongBox(int i) {
+    return LongBox(
+      title: _companies[i].title,
+      link: _companies[i].link,
+      summary: _companies[i].summary,
+      image: _companies[i].image,
     );
   }
 
@@ -169,14 +157,16 @@ class _DealsAndOffersState extends State<DealsAndOffers> {
     try {
       return [
         for (final item in _companies)
-          if (item.companyName
-              .contains(RegExp(_searchString!, caseSensitive: false))) ...[
+          if (item.title
+                  .contains(RegExp(_searchString!, caseSensitive: false)) ||
+              item.summary
+                  .contains(RegExp(_searchString!, caseSensitive: false))) ...[
             const SizedBox(height: 8),
-            DealsBox2(
-              companyName: item.companyName,
-              companySite: item.companySite,
-              percentBack: item.percentBack,
-              logo: item.logo,
+            LongBox(
+              title: item.title,
+              link: item.link,
+              summary: item.summary,
+              image: item.image,
             ),
           ]
       ];
@@ -195,14 +185,14 @@ class _DealsAndOffersState extends State<DealsAndOffers> {
 
 class _DealConfiguration {
   const _DealConfiguration({
-    required this.companyName,
-    required this.companySite,
-    required this.percentBack,
-    required this.logo,
+    required this.title,
+    required this.link,
+    required this.summary,
+    required this.image,
   });
 
-  final String companyName;
-  final String companySite;
-  final int percentBack;
-  final String logo;
+  final String title;
+  final String link;
+  final String summary;
+  final String image;
 }
