@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_and_offers.dart';
+import 'package:totem_test_app/learn_and_earn/content_main.dart';
+import 'package:totem_test_app/learn_and_earn/single_content.dart';
 import 'package:totem_test_app/learn_earn_main.dart';
 import 'package:totem_test_app/resources_main.dart';
 import 'package:totem_test_app/benefits.dart';
-import 'package:totem_test_app/donations.dart';
 import 'package:totem_test_app/cdib.dart';
+import 'package:totem_test_app/explore_tribes.dart';
+
+import 'donations_main.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,8 +69,8 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/donations',
         builder: (context, state) => const GenericPage(
-          title: "Donations",
-          child: Donations(),
+          title: "Donation",
+          child: DonationsMain(),
         ),
       ),
       GoRoute(
@@ -76,6 +80,16 @@ class MyApp extends StatelessWidget {
           child: CDIB(),
         ),
       ),
+      GoRoute(
+        path: '/explore_tribes',
+        builder: (context, state) => const GenericPage(
+          title: "Explore Tribes",
+          child:
+              ExploreTribes(), // add this line to render the ExploreTribes widget
+        ),
+      ),
+      GoRoute(
+          path: '/content', builder: (context, state) => const ContentMain())
     ],
   );
 }
@@ -118,7 +132,7 @@ class _GenericPageState extends State<GenericPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Totem Test App"),
+        title: Text(widget.title),
         elevation: 0,
         backgroundColor: Colors.black,
       ),
