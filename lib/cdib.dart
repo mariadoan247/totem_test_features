@@ -1,69 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/cube_box.dart';
-import 'package:totem_test_app/long_box.dart';
 import 'package:totem_test_app/search.dart';
 
-// TODO: get data from elsewhere
 const _cdib = [
-  _CDIBConfiguration(
-    title: "Choctaw Benefit",
-    link: "https://www.choctawnation.com/services/supportive-elder-housing/",
-    summary: "202 Supportive Elder Housing",
-    image: "assets/images/Choctaw_seal.png",
+  _CdibConfiguration(
+    title: "Know what tribe your are a part of and your family name",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Chickasaw Benefit",
-    link:
-        "https://www.chickasaw.net/Services/Culture/Chickasaw-Language-Revitalization-Program.aspx",
-    summary: "Chickasaw Language Revitalization Program",
-    image: 'assets/images/Chickasaw_Seal.png',
+  _CdibConfiguration(
+    title:
+        "Identify the ancestor you are trying to trace your lineage to on the Dawes roll",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Chickasaw Benefit",
-    link:
-        "https://www.chickasaw.net/Services/Culture/Chickasaw-Language-Revitalization-Program.aspx",
-    summary: "Chickasaw Language Revitalization Program",
-    image: 'assets/images/Chickasaw_Seal.png',
+  _CdibConfiguration(
+    title:
+        "Look up that ancestor on a historical website such as:\nDawes Rolls | Oklahoma Historical Society (okhistory.org)",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Choctaw Benefit",
-    link: "https://www.choctawnation.com/services/supportive-elder-housing/",
-    summary: "202 Supportive Elder Housing",
-    image: "assets/images/Choctaw_seal.png",
+  _CdibConfiguration(
+    title:
+        "If you found your ancestor proceed to step 5, otherwise proceed to step 10",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Chickasaw Benefit",
-    link:
-        "https://www.chickasaw.net/Services/Culture/Chickasaw-Language-Revitalization-Program.aspx",
-    summary: "Chickasaw Language Revitalization Program",
-    image: 'assets/images/Chickasaw_Seal.png',
+  _CdibConfiguration(
+    title: "Look up your ancestor’s census card and enrollment packet . . .",
+    body:
+        "- A Census cards list the enrollee’s name, age, sex, blood quantum, tribe, place of residence, and roll number.\n- An Enrollment packet provides details about the individual and their family, including marriage, birth, and death information. They may include transcripts of interviews with family members or neighbors and correspondence regarding enrollment.",
   ),
-  _CDIBConfiguration(
-    title: "Chickasaw Benefit",
-    link:
-        "https://www.chickasaw.net/Services/Culture/Chickasaw-Language-Revitalization-Program.aspx",
-    summary: "Chickasaw Language Revitalization Program",
-    image: 'assets/images/Chickasaw_Seal.png',
+  _CdibConfiguration(
+    title:
+        "Provide documents of each birth and death of family members in the lineage",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Choctaw Benefit",
-    link: "https://www.choctawnation.com/services/supportive-elder-housing/",
-    summary: "202 Supportive Elder Housing",
-    image: "assets/images/Choctaw_seal.png",
+  _CdibConfiguration(
+    title:
+        "Submit your birth certificate, social security number, and driver’s license",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Chickasaw Benefit",
-    link:
-        "https://www.chickasaw.net/Services/Culture/Chickasaw-Language-Revitalization-Program.aspx",
-    summary: "Chickasaw Language Revitalization Program",
-    image: 'assets/images/Chickasaw_Seal.png',
+  _CdibConfiguration(
+    title:
+        "Submit all documents and apply for your CDIB with the Bureau of Indian Affairs (BIA)",
+    body: "Extra info",
   ),
-  _CDIBConfiguration(
-    title: "Chickasaw Benefit",
-    link:
-        "https://www.chickasaw.net/Services/Culture/Chickasaw-Language-Revitalization-Program.aspx",
-    summary: "Chickasaw Language Revitalization Program",
-    image: 'assets/images/Chickasaw_Seal.png',
+  _CdibConfiguration(
+    title: "Wait for 6-8 weeks for your application to process",
+    body: "Extra info",
+  ),
+  _CdibConfiguration(
+    title:
+        "If you are unable to find your ancestor, try searching another tribes roll, the 1900 U.S. census, or the rejected Dawes Roll applicants",
+    body: "Extra info",
   ),
 ];
 
@@ -77,126 +62,116 @@ class CDIB extends StatefulWidget {
 }
 
 class _CDIBState extends State<CDIB> {
-  String? _searchString;
-
-  void _changeSearch(String? newSearchString) {
-    setState(() {
-      _searchString = newSearchString;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SearchBox(onSearch: _changeSearch),
-        const SizedBox(height: 32),
-        if (_searchString != null)
-          ..._buildSearched()
-        else
-          ..._buildUnsearched(),
-      ],
-    );
-  }
-
-  List<Widget> _buildUnsearched() {
-    return [
-      const Text(
-        "CDIB",
-        style: TextStyle(
-          color: Color(0xff4f4d4d),
-          fontSize: 12,
-        ),
-      ),
-      for (int i = 0; i < _cdib.length; i++) ...[
-        const SizedBox(height: 32),
-        if (i % 3 == 0) _buildCubeBox(i++) else _buildLongBox(i),
-      ],
-    ];
-  }
-
-  Widget _buildCubeBox(int i) {
-    if (i < _cdib.length - 1) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Expanded(
-            child: CubeBox(
-              title: _cdib[i].title,
-              link: _cdib[i].link,
-              summary: _cdib[i].summary,
-              image: _cdib[i].image,
-            ),
+        const SizedBox(height: 12),
+        for (int i = 0; i < _cdib.length; ++i) ...[
+          _CreateStep(
+            index: i + 1,
+            title: _cdib[i].title,
+            body: _cdib[i].body,
           ),
-          const SizedBox(width: 24),
-          Expanded(
-            child: CubeBox(
-              title: _cdib[i + 1].title,
-              link: _cdib[i + 1].link,
-              summary: _cdib[i + 1].summary,
-              image: _cdib[i + 1].image,
-            ),
-          ),
+          const SizedBox(height: 12),
         ],
-      );
-    }
-    return LongBox(
-      title: _cdib[i].title,
-      link: _cdib[i].link,
-      summary: _cdib[i].summary,
-      image: _cdib[i].image,
+      ],
     );
-  }
-
-  Widget _buildLongBox(int i) {
-    return LongBox(
-      title: _cdib[i].title,
-      link: _cdib[i].link,
-      summary: _cdib[i].summary,
-      image: _cdib[i].image,
-    );
-  }
-
-  List<Widget> _buildSearched() {
-    try {
-      return [
-        for (final item in _cdib)
-          if (item.title
-              .contains(RegExp(_searchString!, caseSensitive: false))) ...[
-            const SizedBox(height: 8),
-            LongBox(
-              title: item.title,
-              link: item.link,
-              summary: item.summary,
-              image: item.image,
-            ),
-          ]
-      ];
-    } catch (error) {
-      return [
-        Text(
-          'Invalid search string: "$_searchString"',
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      ];
-    }
   }
 }
 
-class _CDIBConfiguration {
-  const _CDIBConfiguration({
+class _CreateStep extends StatefulWidget {
+  const _CreateStep({
+    required this.index,
     required this.title,
-    required this.link,
-    required this.summary,
-    required this.image,
+    required this.body,
+  });
+
+  final int index;
+
+  final String title;
+
+  final String body;
+
+  @override
+  State<_CreateStep> createState() => __CreateStepState();
+}
+
+class __CreateStepState extends State<_CreateStep> {
+  bool _isSelected = false;
+  Color get _backgroundColor => _isSelected ? Colors.white : Colors.black;
+  Color get _indexColor => _isSelected ? Colors.black : Colors.white;
+
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _isSelected = !_isSelected;
+            });
+          },
+          child: Container(
+            width: 24,
+            height: 24,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white),
+              color: _backgroundColor,
+            ),
+            child: Center(
+              child: Text(
+                "${widget.index}",
+                style: TextStyle(color: _indexColor),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 5),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isExpanded = !_isExpanded;
+                  });
+                },
+                child: Text(
+                  widget.title,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+              if (_isExpanded) ...[
+                const SizedBox(height: 8),
+                Text(
+                  widget.body,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CdibConfiguration {
+  const _CdibConfiguration({
+    required this.title,
+    required this.body,
   });
 
   final String title;
-  final String link;
-  final String summary;
-  final String image;
+
+  final String body;
 }
