@@ -31,21 +31,11 @@ class FinishedDonation extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 120,
-                      height: 250,
-                    ),
-                    const Positioned.fill(
-                      child: Icon(
-                        Icons.check_circle_outline,
-                        color: Colors.white,
-                        size: 160,
-                      ),
-                    ),
-                  ],
+                SizedBox(height: 16),
+                Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.white,
+                  size: 160,
                 ),
                 const SizedBox(height: 10),
                 Container(
