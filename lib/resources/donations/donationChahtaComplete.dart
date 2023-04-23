@@ -12,9 +12,8 @@ class FinishedDonation extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: 10),
         Container(
-          padding: const EdgeInsets.only(top: 0.0),
+          height: MediaQuery.of(context).size.height*0.7,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: const LinearGradient(
@@ -30,6 +29,7 @@ class FinishedDonation extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(height: 16),
                 Icon(

@@ -31,6 +31,7 @@ class _DonateChahtaFoundationState extends State<DonateChahtaFoundation> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
+            height: MediaQuery.of(context).size.height*0.6,
             padding: const EdgeInsets.only(top: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
