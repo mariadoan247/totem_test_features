@@ -76,7 +76,7 @@ class _DonateChahtaFoundationState extends State<DonateChahtaFoundation> {
                       ),
                       child: TextField(
                         controller: _controller,
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.numberWithOptions(decimal: true),
                         inputFormatters: [
                           FilteringTextInputFormatter.allow(
                               RegExp(r'^\d+\.?\d{0,2}')),
