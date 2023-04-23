@@ -65,7 +65,7 @@ class FinishedDonation extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () => context.go('/'),
+                      onTap: () => context.go('/resources'),
                       child: Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(vertical: 8),
@@ -75,7 +75,7 @@ class FinishedDonation extends StatelessWidget {
                         ),
                         child: const Center(
                           child: Text(
-                            'My Account',
+                            'Resources',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
