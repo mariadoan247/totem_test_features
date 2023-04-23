@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 class DonateChahtaFoundation extends StatefulWidget {
@@ -83,6 +84,10 @@ class _DonateChahtaFoundationState extends State<DonateChahtaFoundation> {
                                 child: TextField(
                                   controller: _controller,
                                   keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'^\d+\.?\d{0,2}')),
+                                  ],
                                   decoration: InputDecoration(
                                     labelText:
                                         _showLabel ? 'Enter amount' : null,
