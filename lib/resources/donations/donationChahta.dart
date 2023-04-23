@@ -119,7 +119,7 @@ class _DonateChahtaFoundationState extends State<DonateChahtaFoundation> {
                         ),
                         const SizedBox(width: 10),
                         const Text(
-                          'Make this a monthly donation',
+                          'Monthly donation?',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14,
