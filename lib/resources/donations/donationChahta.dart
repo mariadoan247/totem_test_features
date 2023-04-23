@@ -68,41 +68,38 @@ class _DonateChahtaFoundationState extends State<DonateChahtaFoundation> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Container(
-                        width: 176,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[100]?.withOpacity(
-                              0.4), // Make the box more transparent
-                        ),
-                        child: TextField(
-                          controller: _controller,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                                RegExp(r'^\d+\.?\d{0,2}')),
-                          ],
-                          decoration: InputDecoration(
-                            labelText: _showLabel ? 'Enter amount' : null,
-                            labelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 85, 85, 85),
-                              fontSize: 16,
-                            ),
-                            prefixIcon: const Icon(
-                              Icons.attach_money,
-                              color: Color.fromARGB(255, 85, 85, 85),
-                            ),
-                            filled: true,
-                            fillColor: const Color.fromRGBO(120, 217, 217,
-                                0.1), // Adjust the alpha value to make the box more transparent
+                    Container(
+                      width: 176,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100]
+                            ?.withOpacity(0.4), // Make the box more transparent
+                      ),
+                      child: TextField(
+                        controller: _controller,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp(r'^\d+\.?\d{0,2}')),
+                        ],
+                        decoration: InputDecoration(
+                          labelText: _showLabel ? 'Enter amount' : null,
+                          labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 85, 85, 85),
+                            fontSize: 16,
                           ),
-                          onChanged: (value) {
-                            setState(() {
-                              _showLabel = false;
-                            });
-                          },
+                          prefixIcon: const Icon(
+                            Icons.attach_money,
+                            color: Color.fromARGB(255, 85, 85, 85),
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromRGBO(120, 217, 217,
+                              0.1), // Adjust the alpha value to make the box more transparent
                         ),
+                        onChanged: (value) {
+                          setState(() {
+                            _showLabel = false;
+                          });
+                        },
                       ),
                     ),
                     const SizedBox(height: 12),
