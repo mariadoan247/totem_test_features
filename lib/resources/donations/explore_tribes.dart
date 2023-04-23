@@ -90,7 +90,7 @@ class ExploreTribeCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () => context.go('/donationChahta'),
+              onTap: () => context.push('/donationChahta'),
               hoverColor: const Color(0x991e1e1e),
               child: Container(
                 child: Column(

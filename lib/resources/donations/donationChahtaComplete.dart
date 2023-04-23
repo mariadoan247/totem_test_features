@@ -12,9 +12,8 @@ class FinishedDonation extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: 10),
         Container(
-          padding: const EdgeInsets.only(top: 0.0),
+          height: MediaQuery.of(context).size.height*0.7,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: const LinearGradient(
@@ -30,22 +29,13 @@ class FinishedDonation extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 120,
-                      height: 250,
-                    ),
-                    const Positioned.fill(
-                      child: Icon(
-                        Icons.check_circle_outline,
-                        color: Colors.white,
-                        size: 160,
-                      ),
-                    ),
-                  ],
+                SizedBox(height: 16),
+                Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.white,
+                  size: 160,
                 ),
                 const SizedBox(height: 10),
                 Container(
@@ -75,7 +65,7 @@ class FinishedDonation extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () => context.push('/'),
+                      onTap: () => context.go('/resources'),
                       child: Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(vertical: 8),
@@ -85,7 +75,7 @@ class FinishedDonation extends StatelessWidget {
                         ),
                         child: const Center(
                           child: Text(
-                            'My Account',
+                            'Resources',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
