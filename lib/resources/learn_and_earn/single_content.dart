@@ -2,7 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:totem_test_app/learn_and_earn/progress_bar.dart';
+import 'package:totem_test_app/resources/learn_and_earn/progress_bar.dart';
 
 class SingleContent extends StatefulWidget {
   const SingleContent({

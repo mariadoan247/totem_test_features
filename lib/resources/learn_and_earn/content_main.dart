@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/learn_and_earn/single_content.dart';
+import 'package:totem_test_app/resources/learn_and_earn/single_content.dart';
 
 // TODO: Get the data from else where
 const _contentList = [

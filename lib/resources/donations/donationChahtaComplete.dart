@@ -75,7 +75,7 @@ class FinishedDonation extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () => context.push('/'),
+                      onTap: () => context.go('/'),
                       child: Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(vertical: 8),

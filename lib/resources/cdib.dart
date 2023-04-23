@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/search.dart';
+import 'package:totem_test_app/boxes/search.dart';
 
 const _cdib = [
   _CdibConfiguration(

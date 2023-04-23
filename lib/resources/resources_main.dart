@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/big_box.dart';
+import 'package:totem_test_app/boxes/big_box.dart';
 
 // TODO: get data from elsewhere
 const _resources = [

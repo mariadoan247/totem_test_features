@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/learn_and_earn/learn_box.dart';
-import 'package:totem_test_app/learn_and_earn/quiz_of_the_day.dart';
+import 'package:totem_test_app/resources/learn_and_earn/learn_box.dart';
+import 'package:totem_test_app/resources/learn_and_earn/quiz_of_the_day.dart';
 
 class LearnEarnMain extends StatefulWidget {
   const LearnEarnMain({
