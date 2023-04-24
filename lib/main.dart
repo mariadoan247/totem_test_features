@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:totem_test_app/deals_and_offers.dart';
-import 'package:totem_test_app/learn_earn_main.dart';
-import 'package:totem_test_app/resources_main.dart';
-import 'package:totem_test_app/benefits.dart';
-import 'package:totem_test_app/cdib.dart';
-import 'package:totem_test_app/explore_tribes.dart';
+import 'package:totem_test_app/resources/learn_and_earn/content_main.dart';
+import 'package:totem_test_app/resources/learn_and_earn/single_content.dart';
+import 'package:totem_test_app/resources/learn_and_earn/learn_earn_main.dart';
+import 'package:totem_test_app/resources/resources_main.dart';
+import 'package:totem_test_app/resources/benefits.dart';
+import 'package:totem_test_app/resources/cdib.dart';
+import 'package:totem_test_app/resources/donations/explore_tribes.dart';
 
-import 'donations_main.dart';
+import 'resources/donations/donationChahta.dart';
+import 'resources/donations/donationChahtaComplete.dart';
+import 'resources/donations/donations_main.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,7 +36,7 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) => const GenericPage(
-          title: "Main page",
+          title: "Account",
           child: Placeholder(),
         ),
       ),
@@ -85,6 +89,25 @@ class MyApp extends StatelessWidget {
           child:
               ExploreTribes(), // add this line to render the ExploreTribes widget
         ),
+      ),
+      GoRoute(
+          path: '/content', builder: (context, state) => const ContentMain()),
+      GoRoute(
+        path: '/donationChahta',
+        builder: (context, state) => const GenericPage(
+          title: "Chahta Foundation",
+          child:
+              DonateChahtaFoundation(), // add this line to render the ExploreTribes widget
+        ),
+      ),
+      GoRoute(
+        path: '/donationChahtaComplete',
+        builder: (context, state) {
+          return const GenericPage(
+            title: '',
+            child: FinishedDonation(),
+          );
+        },
       ),
     ],
   );
@@ -156,6 +179,7 @@ class _GenericPageState extends State<GenericPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(
+          //remove
           child: widget.child,
         ),
       ),

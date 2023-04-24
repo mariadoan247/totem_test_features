@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:totem_test_app/cube_box.dart';
-import 'package:totem_test_app/long_box.dart';
-import 'package:totem_test_app/search.dart';
+import 'package:totem_test_app/boxes/cube_box.dart';
+import 'package:totem_test_app/boxes/long_box.dart';
+import 'package:totem_test_app/boxes/search.dart';
 
 // TODO: get data from elsewhere
 const _donations = [
